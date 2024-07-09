@@ -1,0 +1,11 @@
+services:
+  bot:
+    container_name: CMoD_CircleManagerOnDiscord
+    build: .
+    volumes:
+      - ./bot:/usr/src/app:rw
+    environment:
+      - DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN}
+      - GUILDS=${GUILDS}
+    command: ["python", "main.py"]
+    tty: true
