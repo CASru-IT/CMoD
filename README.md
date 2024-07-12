@@ -4,9 +4,10 @@ Circle Manager on Discord
 ## 概要
 Discordのbotを使用して、サークルの管理を行うためのbotです。
 
-## 機能
+# 導入
 
 ## 前提条件
+- botを動作させることが出来るサーバーが用意されていること
 - Dockerがインストールされていること
 - Discord botを作成し、トークンを取得していること
 
@@ -17,7 +18,7 @@ Discordのbotを使用して、サークルの管理を行うためのbotです�
 DISCORD_BOT_TOKEN="作成したDiscord botのトークン" 
 GUILDS="このbotを使用するサーバーのID(カンマ区切りで複数指定可)" 
 ```
-3. 以下のコマンドを実行する。
+3. 以下のコマンドをターミナル上で実行する。
 ```
-$ docker-compose up --build
+docker-compose up --build　-d
 ```
