@@ -4,7 +4,7 @@ Circle Manager on Discord
 ## 概要
 Discordのbotを使用して、サークルの管理を行うためのbotです。
 
-## 機能
+# 導入
 
 ## 前提条件
 - botを動作させることが出来るサーバーが用意されていること
