@@ -22,10 +22,6 @@ class MyClient(commands.Bot):
         print(f"{message.author}よりメッセージを受信しました: {message.content}")
         await super().on_message(message)
 
-
-with open(".discord_token") as f:
-    token = f.read().strip()
-
 intents = discord.Intents.all()
 client = MyClient(intents=intents)
 for command in BOT_COMMANDS:
