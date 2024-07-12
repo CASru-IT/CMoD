@@ -4,7 +4,7 @@ import os
 
 from cogs.omikuji import omikujicommand
 
-BOT_COMMANDS = []
+BOT_COMMANDS = [omikujicommand]
 DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 GUILDS = os.getenv("GUILDS")
 

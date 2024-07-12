@@ -6,5 +6,5 @@
 !/bot/data/**/
 !/bot/data/**/.gitkeep
 /test/
-__pycache__/
+__pycache__
 .vscode/

@@ -4,7 +4,7 @@ from discord.ext import commands
 import discord
 import os
 
-guild_ids = os.getenv('GUILDS')
+guild_ids = int(os.getenv("GUILDS"))
 class omikujicommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
