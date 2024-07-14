@@ -18,7 +18,7 @@ Discordのbotを使用して、サークルの管理を行うためのbotです�
 DISCORD_BOT_TOKEN="作成したDiscord botのトークン" 
 GUILDS="このbotを使用するサーバーのID(カンマ区切りで複数指定可)" 
 ```
-3. 以下のコマンドをターミナル上で実行する。
+3. 以下のコマンドをターミナル上で実行する。(ワーキングディレクトリはdocker-compose.yamleのあるディレクトリ)
 ```
 docker-compose up --build　-d
 ```
