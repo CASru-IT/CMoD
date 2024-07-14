@@ -11,10 +11,10 @@ import os
 
 intents = discord.Intents.default()
 intents.message_content = True
-guild_ids = 1259019648591204465
+guild_ids = os.getenv("GUILDS")
 
-datafile='bot//data//data.json'
-attributefile='bot//config//attribute.json'
+datafile='data//data.json'
+attributefile='config//attribute.json'
 
 client = discord.Client(intents=intents)
 tree= app_commands.CommandTree(client)
