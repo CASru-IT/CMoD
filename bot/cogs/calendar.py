@@ -59,7 +59,7 @@ def get_calendar_service():
             except FileNotFoundError:
                 print("FileNotFoundError")
                 return True
-            creds = flow.run_local_server(port=0)
+            creds = flow.run_local_server(open_browser=False)#bind_addr="0.0.0.0"
         # 次回のために認証情報を保存する
         with open(pickle_file, 'wb') as token:
             pickle.dump(creds, token)
@@ -138,11 +138,7 @@ class Calendar(commands.Cog):
             return
         await interaction.response.send_message(f"Googleカレンダーの予定を表示します", embed=embed, ephemeral=True)
         
-    @app_commands.command(name="istime", description="現在時刻を表示します")
-    @discord.app_commands.guilds(guild_ids)
-    async def istime(self,interaction: discord.Interaction):
-        await interaction.response.send_message(f"現在時刻は{current_datetime}です", ephemeral=True)
-
+    
     @app_commands.command(name="noti", description="notification on or off")
     @discord.app_commands.guilds(guild_ids)
     async def noti(self,interaction: discord.Interaction,mode:bool):
