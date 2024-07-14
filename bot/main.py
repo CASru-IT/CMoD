@@ -2,9 +2,11 @@ import discord
 from discord.ext import commands
 import os
 
-from cogs.omikuji import omikujicommand
+from bot.cogs.drawOmikuji import drawOmikuji
+from bot.cogs.writeMinute import writeMinute
 
-BOT_COMMANDS = [omikujicommand]
+BOT_COMMANDS = [drawOmikuji, writeMinute]
+
 DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 GUILDS = os.getenv("GUILDS")
 

@@ -5,7 +5,7 @@ import discord
 import os
 
 guild_ids = int(os.getenv("GUILDS"))
-class omikujicommand(commands.Cog):
+class drawOmikuji(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
