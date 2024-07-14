@@ -15,3 +15,5 @@ class writeMinute(commands.Cog):
         if interaction.user.voice is None:
             await interaction.response.send_message("あなたはボイスチャンネルに接続していません。")
             return
+        await interaction.user.voice.channel.connect()
+        await interaction.response.send_message("接続しました。")
