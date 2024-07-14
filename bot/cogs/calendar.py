@@ -59,7 +59,7 @@ def get_calendar_service():
             except FileNotFoundError:
                 print("FileNotFoundError")
                 return True
-            creds = flow.run_local_server(open_browser=False)#bind_addr="0.0.0.0"
+            creds = flow.run_local_server(bind_addr="0.0.0.0",open_browser=False)#bind_addr="0.0.0.0"
         # 次回のために認証情報を保存する
         with open(pickle_file, 'wb') as token:
             pickle.dump(creds, token)
