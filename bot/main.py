@@ -25,4 +25,12 @@ async def on_ready():
     Calendar.my_loop.start()
 
 
+@bot.event
+async def on_message(message):
+    name=message.author.global_name
+    discordid=message.author.id
+    username=message.author.name
+    await bot.process_commands(message)
+    await Member.on_message(message,name,discordid,username,bot)
+    print(f"{message.channel}:{message.author}:{message.content}")
 bot.run(DISCORD_BOT_TOKEN)

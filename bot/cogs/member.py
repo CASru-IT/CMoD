@@ -121,17 +121,14 @@ class Member(commands.Cog):
         await interaction.response.send_message("リストを表示します", embed=embed, ephemeral=True)
 
     @client.event
-    async def on_message(message):
+    async def on_message(message,name,discordid,username,bot):
         writable=True
         if message.guild:
             return
-        if message.author == client.user:
+        if message.author == bot.user:
             return
         if not writable:
             return
-        name=message.author.global_name
-        discordid=message.author.id
-        username=message.author.name
         setdata(name,"discordid",discordid)
         setdata(name,"username",username)
         #await message.channel.send("こんにちは")
@@ -144,13 +141,10 @@ class Member(commands.Cog):
                         await message.channel.send(attri)
                         await message.channel.send("を入力してください")
                         writable=False
-                        msg = await client.wait_for('message')
-                        if msg.author == client.user:
+                        msg = await bot.wait_for('message')
+                        if msg.author == bot.user:
                             continue
                         setdata(name,attri,msg.content)
                         writable=True
                         break
         
-
-
-#client.run('MTI1OTAxODU0OTkwNTg1NDQ5NA.G8ITua.LtrznVyunTCkgNuwu9bAwC4o6LHSUsmF8QBkHc')
