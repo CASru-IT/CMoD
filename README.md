@@ -20,5 +20,5 @@ GUILDS="このbotを使用するサーバーのID(カンマ区切りで複数指
 ```
 3. 以下のコマンドをターミナル上で実行する。(作業ディレクトリはdocker-compose.yamlのあるディレクトリ)
 ```
-docker-compose up --build　-d
+docker-compose up --build -d
 ```
