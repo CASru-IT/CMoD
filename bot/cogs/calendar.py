@@ -16,8 +16,6 @@ import pickle
 
 guild_ids = int(os.getenv("GUILDS"))
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
-#CREDENTIALS_FILE = r"bot/config/client_secret_324197984736-s3ro8seiphkb0cqe8l1hdchguc2ktqa3.apps.googleusercontent.com.json"
-#calenid="d6d3d2cbe1b43fbd2e4793d04637c1d8586a4d62dd39e3c445173d8ee6c7abfc@group.calendar.google.com"
 CREDENTIALS_FILE = os.getenv("CREDENTIALS_FILE")
 calenid = os.getenv("CALENDAR_ID")
 
