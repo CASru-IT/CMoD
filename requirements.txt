@@ -1,4 +1,4 @@
-discord.py
+discord.py[voice]
 google-auth
 google-auth-oauthlib
 google-auth-httplib2
