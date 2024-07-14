@@ -11,7 +11,7 @@ import os
 
 intents = discord.Intents.default()
 intents.message_content = True
-guild_ids = os.getenv("GUILDS")
+guild_ids = int(os.getenv("GUILDS"))
 
 datafile='data//data.json'
 attributefile='config//attribute.json'
