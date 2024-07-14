@@ -12,3 +12,6 @@ class writeMinute(commands.Cog):
     @discord.app_commands.guilds(guild_ids)
     async def writeMinute_command(self, interaction: discord.Interaction):
         """議事録を書く."""
+        if interaction.user.voice is None:
+            await interaction.response.send_message("あなたはボイスチャンネルに接続していません。")
+            return

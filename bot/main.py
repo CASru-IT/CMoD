@@ -22,7 +22,7 @@ async def on_ready():
     for command in BOT_COMMANDS:
         await bot.add_cog(command(bot))
     await bot.tree.sync(guild=discord.Object(id=GUILDS))
-    calendar.my_loop.start()
+    # calendar.my_loop.start()
 
 
 bot.run(DISCORD_BOT_TOKEN)
