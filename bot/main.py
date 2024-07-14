@@ -4,9 +4,10 @@ import os
 
 from cogs.drawOmikuji import drawOmikuji
 from cogs.writeMinute import writeMinute
-from cogs.calendar import calendar
+# from cogs.calendar import calendar
 
-BOT_COMMANDS = [drawOmikuji,  calendar, writeMinute]
+BOT_COMMANDS = [drawOmikuji, writeMinute]
+# calendar, 
 
 DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 GUILDS = os.getenv("GUILDS")
