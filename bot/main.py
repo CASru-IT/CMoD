@@ -3,11 +3,10 @@ from discord.ext import commands
 import os
 
 from cogs.drawOmikuji import drawOmikuji
-from cogs.record import record
 from cogs.writeMinute import writeMinute
 # from cogs.calendar import calendar
 
-BOT_COMMANDS = [drawOmikuji, record, writeMinute]
+BOT_COMMANDS = [drawOmikuji, writeMinute]
 # calendar, 
 
 DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
