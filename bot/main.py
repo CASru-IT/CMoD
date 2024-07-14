@@ -2,8 +2,8 @@ import discord
 from discord.ext import commands
 import os
 
-from bot.cogs.drawOmikuji import drawOmikuji
-from bot.cogs.writeMinute import writeMinute
+from cogs.drawOmikuji import drawOmikuji
+from cogs.writeMinute import writeMinute
 
 BOT_COMMANDS = [drawOmikuji, writeMinute]
 
