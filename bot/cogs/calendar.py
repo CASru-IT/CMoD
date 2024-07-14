@@ -5,7 +5,6 @@ import discord
 import os
 from datetime import datetime, timedelta,timezone,time
 from discord.ext import tasks
-import time
 import discord
 from discord import app_commands
 from datetime import datetime
