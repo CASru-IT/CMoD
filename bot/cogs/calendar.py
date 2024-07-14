@@ -118,7 +118,7 @@ class calendar(commands.Cog):
     global stop_thread
     stop_thread = False
 
-    @app_commands.loop(time=times)
+    @tasks.loop(time=times)
     async def my_loop():
         print("カレンダーサービスを取得しています...")
         set_embed()
