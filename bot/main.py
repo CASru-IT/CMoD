@@ -4,9 +4,9 @@ import os
 
 from cogs.drawOmikuji import drawOmikuji
 from cogs.writeMinute import writeMinute
-from cogs.calendar import calendar
+from cogs.calendar import Calendar
 
-BOT_COMMANDS = [drawOmikuji,  calendar, writeMinute]
+BOT_COMMANDS = [drawOmikuji,  Calendar, writeMinute]
 
 DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 GUILDS = os.getenv("GUILDS")
@@ -21,7 +21,7 @@ async def on_ready():
     for command in BOT_COMMANDS:
         await bot.add_cog(command(bot))
     await bot.tree.sync(guild=discord.Object(id=GUILDS))
-    calendar.my_loop.start()
+    Calendar.my_loop.start()
 
 
 bot.run(DISCORD_BOT_TOKEN)

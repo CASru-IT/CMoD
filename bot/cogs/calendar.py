@@ -107,7 +107,7 @@ def reminder():
         embed.add_field(name=start, value=event['summary'], inline=False) 
 
 current_datetime=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-class calendar(commands.Cog):
+class Calendar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
@@ -131,7 +131,7 @@ class calendar(commands.Cog):
         
     @app_commands.command(name="calendar", description="Googleカレンダーの予定を表示します")
     @discord.app_commands.guilds(guild_ids)
-    async def calendar(interaction: discord.Interaction):
+    async def calendar(self,interaction: discord.Interaction):
         set_embed()
         isfile=list_events()
         if isfile is None:
@@ -141,12 +141,12 @@ class calendar(commands.Cog):
         
     @app_commands.command(name="istime", description="現在時刻を表示します")
     @discord.app_commands.guilds(guild_ids)
-    async def istime(interaction: discord.Interaction):
+    async def istime(self,interaction: discord.Interaction):
         await interaction.response.send_message(f"現在時刻は{current_datetime}です", ephemeral=True)
 
     @app_commands.command(name="noti", description="notification on or off")
     @discord.app_commands.guilds(guild_ids)
-    async def noti(interaction: discord.Interaction,mode:bool):
+    async def noti(self,interaction: discord.Interaction,mode:bool):
         global stop_thread
         if mode:
             stop_thread = False
