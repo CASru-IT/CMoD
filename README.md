@@ -3,6 +3,7 @@ Circle Manager on Discord
 
 ![GitHub Release](https://img.shields.io/github/v/release/CASru-IT/CMoD)
 ![GitHub repo size](https://img.shields.io/github/repo-size/CASru-IT/CMoD)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/CASru-IT/CMoD)
 
 
 ## 概要
