@@ -1,5 +1,6 @@
 # CMoD
 Circle Manager on Discord
+
 ![GitHub Release](https://img.shields.io/github/v/release/CASru-IT/CMoD)
 
 ## 概要
