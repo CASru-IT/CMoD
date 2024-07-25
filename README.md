@@ -1,7 +1,7 @@
 # CMoD
 Circle Manager on Discord
 
-![GitHub Release](https://img.shields.io/github/v/release/CASru-IT/CMoD?include_prereleases)
+[![GitHub Release](https://img.shields.io/github/v/release/CASru-IT/CMoD?include_prereleases)](https://github.com/CASru-IT/CMoD/releases/latest)
 ![GitHub repo size](https://img.shields.io/github/repo-size/CASru-IT/CMoD)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/CASru-IT/CMoD)
 
