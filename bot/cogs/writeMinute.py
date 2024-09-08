@@ -17,3 +17,4 @@ class writeMinute(commands.Cog):
             return
         await interaction.user.voice.channel.connect()
         await interaction.response.send_message("接続しました。")
+        
