@@ -5,7 +5,6 @@ import discord
 import os
 from datetime import datetime, timedelta,timezone,time
 from discord.ext import tasks
-import time
 import discord
 from discord import app_commands
 from datetime import datetime
@@ -17,11 +16,10 @@ import pickle
 
 guild_ids = int(os.getenv("GUILDS"))
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
-CREDENTIALS_FILE = r"bot\config\client_secret_324197984736-s3ro8seiphkb0cqe8l1hdchguc2ktqa3.apps.googleusercontent.com.json"
-calenid="d6d3d2cbe1b43fbd2e4793d04637c1d8586a4d62dd39e3c445173d8ee6c7abfc@group.calendar.google.com"
-DISCORD_BOT_TOKEN='MTI1OTAxODU0OTkwNTg1NDQ5NA.G8ITua.LtrznVyunTCkgNuwu9bAwC4o6LHSUsmF8QBkHc'
+CREDENTIALS_FILE = os.getenv("CREDENTIALS_FILE")
+calenid = os.getenv("CALENDAR_ID")
 
-pickle_file = r'bot\config\token.pickle'
+pickle_file = r'config/token.pickle'
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -61,7 +59,7 @@ def get_calendar_service():
             except FileNotFoundError:
                 print("FileNotFoundError")
                 return True
-            creds = flow.run_local_server(port=0)
+            creds = flow.run_local_server(bind_addr="0.0.0.0",open_browser=False)#bind_addr="0.0.0.0"
         # 次回のために認証情報を保存する
         with open(pickle_file, 'wb') as token:
             pickle.dump(creds, token)
@@ -108,7 +106,7 @@ def reminder():
         embed.add_field(name=start, value=event['summary'], inline=False) 
 
 current_datetime=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-class calendar(commands.Cog):
+class Calendar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
@@ -119,7 +117,7 @@ class calendar(commands.Cog):
     global stop_thread
     stop_thread = False
 
-    @app_commands.loop(time=times)
+    @tasks.loop(time=times)
     async def my_loop():
         print("カレンダーサービスを取得しています...")
         set_embed()
@@ -132,7 +130,7 @@ class calendar(commands.Cog):
         
     @app_commands.command(name="calendar", description="Googleカレンダーの予定を表示します")
     @discord.app_commands.guilds(guild_ids)
-    async def calendar(interaction: discord.Interaction):
+    async def calendar(self,interaction: discord.Interaction):
         set_embed()
         isfile=list_events()
         if isfile is None:
@@ -140,14 +138,10 @@ class calendar(commands.Cog):
             return
         await interaction.response.send_message(f"Googleカレンダーの予定を表示します", embed=embed, ephemeral=True)
         
-    @app_commands.command(name="istime", description="現在時刻を表示します")
-    @discord.app_commands.guilds(guild_ids)
-    async def istime(interaction: discord.Interaction):
-        await interaction.response.send_message(f"現在時刻は{current_datetime}です", ephemeral=True)
-
+    
     @app_commands.command(name="noti", description="notification on or off")
     @discord.app_commands.guilds(guild_ids)
-    async def noti(interaction: discord.Interaction,mode:bool):
+    async def noti(self,interaction: discord.Interaction,mode:bool):
         global stop_thread
         if mode:
             stop_thread = False

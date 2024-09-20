@@ -2,6 +2,10 @@
 
 Circle Manager on Discord
 
+[![GitHub Release](https://img.shields.io/github/v/release/CASru-IT/CMoD?include_prereleases)](https://github.com/CASru-IT/CMoD/releases/latest)
+![GitHub repo size](https://img.shields.io/github/repo-size/CASru-IT/CMoD)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/CASru-IT/CMoD)
+
 ## 概要
 
 Discordのbotを使用して、サークルの管理を行うためのbotです。
@@ -22,11 +26,11 @@ Discordのbotを使用して、サークルの管理を行うためのbotです�
 
 ```env
 DISCORD_BOT_TOKEN="作成したDiscord botのトークン" 
-GUILDS="このbotを使用するサーバーのID(カンマ区切りで複数指定可)" 
+GUILDS="このbotを使用するサーバーのID(指定できるのは一つのみ)" 
 ```
 
-1. 以下のコマンドをターミナル上で実行する。(作業ディレクトリはdocker-compose.yamlのあるディレクトリ)
+3. 以下のコマンドをターミナル上で実行する。(作業ディレクトリはdocker-compose.yamlのあるディレクトリ)
 
-```docker
-docker-compose up --build　-d
+```env
+docker-compose up --build -d
 ```

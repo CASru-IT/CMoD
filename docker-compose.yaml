@@ -11,3 +11,5 @@ services:
       - CALENDAR_ID=${CALENDAR_ID}
     command: ["python", "main.py"]
     tty: true
+    ports:
+      - "8080:8080"
