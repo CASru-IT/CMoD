@@ -15,3 +15,4 @@ class drawOmikuji(commands.Cog):
         """おみくじを引く."""
         choice = random.choice(['大吉', '吉', '小吉', '凶', '大凶'])
         await interaction.response.send_message(f"あなたの今日の運勢は **{choice}** です!")
+        

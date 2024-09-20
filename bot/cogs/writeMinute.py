@@ -7,9 +7,10 @@ guild_ids = int(os.getenv("GUILDS"))
 class writeMinute(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.voice_client = None
 
-    @app_commands.command(name="minute")
-    @discord.app_commands.guilds(guild_ids)
+    @app_commands.command(name="writeminute")
+    @discord.app_commands.guilds(*guild_ids)
     async def writeMinute_command(self, interaction: discord.Interaction):
         """議事録を書く."""
         if interaction.user.voice is None:
@@ -17,4 +18,18 @@ class writeMinute(commands.Cog):
             return
         await interaction.user.voice.channel.connect()
         await interaction.response.send_message("接続しました。")
+    
+    @app_commands.command(name="endminute")
+    @discord.app_commands.guilds(*guild_ids)
+    async def endMinute_command(self, interaction: discord.Interaction):
+        """議事録を終了する."""
+        if interaction.user.voice is None:
+            await interaction.response.send_message("あなたはボイスチャンネルに接続していません。")
+            return
+        self.voice_client = await interaction.client.voice_clients[interaction.guild.id]
+        if self.voice_client and self.voice_client.is_connected():
+            await self.voice_client.disconnect()
+            await interaction.response.send_message("切断しました。")
+        else:
+            await interaction.response.send_message("ボイスチャンネルに接続していません。")
         
